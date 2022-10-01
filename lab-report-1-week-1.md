@@ -16,7 +16,7 @@ We can do a lot of things when we ssh into a server! Below are a few examples of
 4. Afterwards, I was able to use the application.
 These steps aren't that hyperspecific since I already had VS Code installed before this class.
 
-## ***Remotely Connecting***
+## ***Remotely Connecting (a simplified version of the first steps above)***
 1. I opened up a new terminal in VS Code.
 2. I ssh to the ieng6 server using my ieng6 email and password.
 3. Then I was remotely connected!
@@ -32,6 +32,7 @@ These steps aren't that hyperspecific since I already had VS Code installed befo
 3. Then, I logged into the ieng6 server and compiled and ran WhereAmI.java there, and it gave the user name, user home, and user directory of the ieng6 computer I was logged into.
 
 ## ***Setting an SSH key***
+![](ssh_key.png)
 1. I used ssh-keygen and saved it to the appropriate file. I set a very simple passcode.
 2. I copied the public key to the directory of my user account on the server.
 3. I tried to ssh to the server again, and this time I was prompted to use my passcode instead of my password!
