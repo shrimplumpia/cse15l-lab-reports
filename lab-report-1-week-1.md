@@ -10,6 +10,7 @@
 We can do a lot of things when we ssh into a server! Below are a few examples of things I did to experiment with ssh and other commands.
 
 ## ***Installing Visual Studio Code***
+![](vs_code.png)
 1. Go to code.visualstudio.com.
 2. Click the Download button and unzip the file that gets downloaded.
 3. Install VS Code, and since I'm on a Mac, I dragged it to my Applications folder.
@@ -17,16 +18,19 @@ We can do a lot of things when we ssh into a server! Below are a few examples of
 These steps aren't that hyperspecific since I already had VS Code installed before this class.
 
 ## ***Remotely Connecting (a simplified version of the first steps above)***
+![](remotely_connecting.png)
 1. I opened up a new terminal in VS Code.
 2. I ssh to the ieng6 server using my ieng6 email and password.
 3. Then I was remotely connected!
 
 ## ***Trying some commands***
+![](running_commands.png)
 1. I tried some commands while logged into the ieng6 computer, though some commands, like cd and cd ~ didn’t work (they didn’t work on my computer either).
 2. Other commands like ls -lat, ls -a, and ls <directory> returned different things for my computer and for the ieng6 computer.
 3. The cp and cat commands didn’t work on my computer, probably since I wasn’t connected to the ieng6 computer.
 
 ## ***Moving files with scp***
+![](moving_files_over.png)
 1. I created a new folder for Lab 1 and then created a new file in the folder called WhereAmI.java to include the code listed in the lab instructions.
 2. Afterwards, I compiled and ran the code on my own computer and it returned my user name, the user home, and user directory. I used scp to copy WhereAmI.java into my account on the ieng6 server.
 3. Then, I logged into the ieng6 server and compiled and ran WhereAmI.java there, and it gave the user name, user home, and user directory of the ieng6 computer I was logged into.
@@ -39,6 +43,7 @@ These steps aren't that hyperspecific since I already had VS Code installed befo
 
 ## ***Optimizing remote running***
 1. I actually used the up key a lot throughout this exercise when I would mess up commands and I use it a lot whenever I run commands in the terminal in general because it just feels like it saves so much time, especially since commands have be spelled exactly the same
+![](it_didn't_work.png)
 2. I actually couldn’t really get all the commands to work, which is a bit disappointing since I wanted to see how useful they were.
   
 
