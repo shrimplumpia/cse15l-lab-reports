@@ -4,5 +4,5 @@ I just can't compare you to anything in this world
 You're all I need to be here with
 *forevermore*
 
-[Lab Report 0](https://github.com/shrimplumpia/cse15l-lab-reports/blob/main/lab-report-1-week-0.md)
-[Lab Report 1](https://github.com/shrimplumpia/cse15l-lab-reports/blob/main/lab-report-1-week-1.md)
+1. [Lab Report 0](https://github.com/shrimplumpia/cse15l-lab-reports/blob/main/lab-report-1-week-0.md)
+2. [Lab Report 1](https://github.com/shrimplumpia/cse15l-lab-reports/blob/main/lab-report-1-week-1.md)
