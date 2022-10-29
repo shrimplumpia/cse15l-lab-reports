@@ -67,7 +67,7 @@ class SearchEngine {
 
 *Using the add query to add a word to the list.*
 <br/><br/>
->The add? query calls on the handleRequest method. This method takes in a URL as a parameter, and looks at certain parts of the URL to determine what to do. In this case, the method looks for what comes after the first forward slash in the URL. It recognizes the String that comes after the first forward slash and before the equals sign as a query signifying what action the method should take. When the recognized query is 'add,' the String following the equals sign is added to the ArrayList initialized at the beginning of the class, and the user is given feedback through the phrase "Added to list" before their added String.
+>The add? query calls on the handleRequest method. This method takes in a URL as a parameter, and looks at certain parts of the URL to determine what to do. In this case, the method looks for what comes after the first forward slash in the URL. It recognizes the String that comes after the first forward slash and before the equals sign as a path, and the part that comes after the ? is the query signifying what action the method should take. When the recognized query is 'add,' the String following the equals sign is added to the ArrayList initialized at the beginning of the class, and the user is given feedback through the phrase "Added to list" before their added String.
 
 <br/><br/> 
 ![Adding another word to the list.](search_engine_addpineapple.png)
@@ -82,7 +82,7 @@ class SearchEngine {
 *Searching for all words added to the list containing 'slay'.*
 <br/><br/> 
 
->I added several more Strings to my list that are not pictured here. This time, the image shows a different query, 'search,' that essentially looks through the list and returns all Strings that contain the phrase written after 'search?s='. 
+>Similar to the add query, the search? query calls on the handleRequest method. This method takes in a URL as a parameter, and looks at certain parts of the URL to determine what to do by looking at what comes after the first forward slash in the URL. It recognizes the String that comes after the first forward slash and before the equals sign as a path, and the part that comes after the ? is the query signifying what action the method should take. When the recognized query is 'search,' the algorithm searches through the entire ArrayList for words containing the String following the equals sign. The user is given feedback through the phrase "words containing" the String they are searching for, and an array of all the words that were added using the "add" query containing the String to "search" for.  
 
 <br/><br/> 
 
@@ -133,7 +133,10 @@ public class ArrayTests {
 
 >My failure-inducing input for reverseInPlace was an integer array of {1,2,3,4,5}. The symptom/output when the test failed was that the 3rd index of the reversed list was expected to be 2, but its actual value was 4.
 <br/>
- 
+
+ ![](ArrayExamples_symptom.png)
+*Screenshot of the symptoms of reverseInPlace*
+
 
 <br/><br/>
 
@@ -229,7 +232,9 @@ public class ListTests {
 
 >My failure-inducing input for checkString was a String List {"one","two","three","seven","nine","four"}. I made a checkString method that is supposed to return Strings that are less than 5 characters long, so the expected output was {"one","two","nine","four"}. The symptom when the test failed was that it returned {“four”,”nine”,”two”,”one”}. 
 <br/>
- 
+
+![](ListExamples_symptom.png)
+ *Screenshot of the symptoms of filter and merge*
 
 <br/><br/>
 
