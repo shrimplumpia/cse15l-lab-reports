@@ -101,8 +101,64 @@ find .
 And received this output:
 ![](find-dot.png)
 *This is a screenshot of only a portion of the output, since there are so many ./technical files within Docsearch.*
-> This command 
+> The "." in the command tells 'find' to search and print every file in the current directory. When I ran this command using the code from our week 4 lab, I was in the docsearch directory, so the output printed out every file within that directory (so files within the technical folder, which contains the 911 reports, biomed, government, and plos folders).
 
+<br/><br/>
+<br/><br/>
 
+---
+## Example 2: Exact file names in the directory
+<br/>
+In the command line, type:
 
+~~~
+less . -name 'String'
+~~~
+
+The -name Ecommand tells 'find' to search for files or directories that contain the String following -name and print them. The "." before the -name command tells 'find' to search for files that are named exactly like the String following -name. This command is case-sensitive, meaning that lowercase and uppercase laters from the String have to exactly match the file or directory we are searching for.
+
+<br/><br/>
+Using the files provided from our lab in week 4 (docsearch), I used this command:
+
+~~~
+find . -name 'government'
+~~~
+
+And received this output:
+~~~
+./technical/government
+~~~
+
+>There is only one match for finding a file or directory named exactly 'government'. In this case, it's the government directory within the technical directory under docsearch.
+
+<br/><br/>
+<br/><br/>
+
+---
+## Example 3: Finding recently modified files
+<br/>
+Using the files provided from our lab in week 4 (docsearch), I used this command:
+
+~~~
+find . -amin -5
+~~~
+
+And received this output:
+![](find-amin.png)
+This command searches for files in the current directory that were modified less than five minutes ago. For the sake of this example, I modified a line in one of the files in the docsearch repository and used -amin -5 immediately after to see what it would output. I believe that the "./.git/objects" lines may be referring to the exact edits I made in the file, while the "./technical" line refers to the exact file that I modified.
+
+<br/><br/>
+<br/><br/>
+
+## ***The grep command***
+<br/>
+
+## Example 1: Using grep with find
+
+<br/><br/>
+Using the files provided from our lab in week 4 (docsearch), I used this command:
+
+~~~
+find .
+~~~
 
