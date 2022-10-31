@@ -8,7 +8,7 @@
 In the command line, type:
 
 ~~~
-less [OPTIONS] filename
+less [options] [filename]
 ~~~
 
 <br/><br/>
@@ -44,7 +44,7 @@ We obtained cancer incidence and mortality data for Marin County and other Calif
 <br/>
 In the command line, type:
 ~~~
-less -N filename
+less -N [filename]
 ~~~
 
 <br/><br/>
@@ -68,7 +68,7 @@ And received this output:
 <br/>
 In the command line, type:
 ~~~
-less filename1 filename2 filename3
+less [filename1] [filename2] [filename3]
 ~~~
 Essentially, you can look through the contents of multiple files by passing them in as multiple command line arguments.
 
@@ -89,6 +89,7 @@ And received this output:
 ## ***The find command***
 <br/>
 
+---
 ## Example 1: Finding Every File in the Current Directory
 
 <br/><br/>
@@ -112,7 +113,7 @@ And received this output:
 In the command line, type:
 
 ~~~
-less . -name 'String'
+less . -name [string to look for]
 ~~~
 
 The -name Ecommand tells 'find' to search for files or directories that contain the String following -name and print them. The "." before the -name command tells 'find' to search for files that are named exactly like the String following -name. This command is case-sensitive, meaning that lowercase and uppercase laters from the String have to exactly match the file or directory we are searching for.
@@ -145,20 +146,83 @@ find . -amin -5
 
 And received this output:
 ![](find-amin.png)
-This command searches for files in the current directory that were modified less than five minutes ago. For the sake of this example, I modified a line in one of the files in the docsearch repository and used -amin -5 immediately after to see what it would output. I believe that the "./.git/objects" lines may be referring to the exact edits I made in the file, while the "./technical" line refers to the exact file that I modified.
+>This command searches for files in the current directory that were modified less than five minutes ago. For the sake of this example, I modified a line in one of the files in the docsearch repository and used -amin -5 immediately after to see what it would output. I believe that the "./.git/objects" lines may be referring to the exact edits I made in the file, while the "./technical" line refers to the exact file that I modified.
 
 <br/><br/>
 <br/><br/>
 
+---
 ## ***The grep command***
 <br/>
 
-## Example 1: Using grep with find
+## Example 1: Basic usage
+<br/>
+In the command line, type:
+
+~~~
+grep [pattern] [filename]
+~~~
+grep looks for a pattern (e.g. a String expression) in the filename specified in the command line and prints out all the lines in that file that match that pattern.
+
 
 <br/><br/>
 Using the files provided from our lab in week 4 (docsearch), I used this command:
 
 ~~~
-find .
+grep "small" technical/biomed/1468-6708-3-1.txt
 ~~~
 
+And received this output:
+
+~~~
+in certain small subsets. A review of 13 studies of older throughout adult life. It may be that a small amount of number of studies of older persons is fairly small, and to normal yielded small, non-significant effect sizes, with due to a smaller sample size.
+~~~
+>The lines in this output don't really make sense when put together, but that's because these are all the lines that match the pattern I searched ("small").
+
+<br/><br/>
+<br/><br/>
+
+---
+## Example 2: Color-coding the pattern we are looking for
+<br/>
+In the command line, type:
+
+~~~
+grep --color [pattern] [filename]
+~~~
+This command works similarly to using grep normally, but this time we included the 'option' of color coding the pattern we are looking for using --color. This means that when our lines within the specified file include the pattern we're searching for, those lines are printed with the pattern we are looking for highlighted in the color red.
+
+<br/><br/>
+Using the files provided from our lab in week 4 (docsearch), I used this command:
+
+~~~
+grep --color "small" technical/biomed/1468-6708-3-1.txt
+~~~
+
+And received this output:
+![](grep-color.png)
+>The pattern I was searching for was "small", so this time all lines within the file 1468-6708-3-1.txt within the biomed directory in technical were printed with "small" being highlighted in red.
+
+<br/><br/>
+<br/><br/>
+
+---
+## Example 3: Line numbers of successful matches
+<br/>
+In the command line, type:
+
+~~~
+grep -n [pattern] [filename]
+~~~
+This command works similarly to using grep normally, but this time we included the 'option' of printing out the line numbers of each line we looked for. When our lines within the specified file include the pattern we are looking for, they printed along side the corresponding line numbers they have in their file.
+
+<br/><br/>
+Using the files provided from our lab in week 4 (docsearch), I used this command:
+
+~~~
+grep --color -n  "small" technical/biomed/1468-6708-3-1.txt
+~~~
+
+And received this output:
+![](grep-n-color.png)
+>I actually combined two different 'options' here, --color and -n. In this picture, the line number of each matching line within their file is printed alongside those lines. Since I used --color as well, the pattern I searched for in these lines, "small", is highlighted in red as well.
