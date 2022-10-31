@@ -34,7 +34,10 @@ We obtained cancer incidence and mortality data for Marin County and other Calif
 :
 ~~~
 
->This is only a portion of the output. Essentially, when the less command is used like this, it prints out the contents of a file one page at a time. It is typically used for opening large files. In this case, the output was extremely long, and the ":" at the end signifies that the output goes on for longer to fit on one single page. You can continue to scroll down the page by using the scroll bar or down arrows, and go to the next page using the f key or space bar.
+>This is only a portion of the output. Essentially, when the less command is used like this, it prints out the contents of a file one page at a time. In this case, the output was extremely long, and the ":" at the end signifies that the output goes on for longer to fit on one single page. You can continue to scroll down the page by using the scroll bar or down arrows, and go to the next page using the f key or space bar.
+
+<br/>
+This command is particularly helpful when trying to read through large files. When these files are read and printed to the command line, they are printed out in 'pages' that we can navigate between using different keyboard shortcuts, making the process of reading large files much more manageable.
 
 <br/><br/>
 <br/><br/>
@@ -43,6 +46,7 @@ We obtained cancer incidence and mortality data for Marin County and other Calif
 ## Example 2: Line Count
 <br/>
 In the command line, type:
+
 ~~~
 less -N [filename]
 ~~~
@@ -56,9 +60,12 @@ less -N technical/biomed/bcr458.txt
 
 And received this output:
 ![](less-n.png)
-*I put it in as an image instead of a code block since copy-pasting the output directly messed up the formatting.*
+*I put it in as an image instead of a code block since copy-pasting the output messed up the formatting.*
 
->Using -N with the 'less' command prints out a very similar output as just using 'less' by itself, except this time it includes the number of each line in the file.
+>Using -N with the 'less' command prints out a very similar output as just using 'less' by itself, except this time it includes the line number of each line in the file. 
+
+<br/>
+An example in which this would be useful is when we use the command line to read through a file, and need to record which paragraphs are most useful to us. If we needed paragraph 2 from the above output, for example, we could note that we need lines 6-27.
 
 <br/><br/>
 <br/><br/>
@@ -67,10 +74,14 @@ And received this output:
 ## Example 3: Multiple Files
 <br/>
 In the command line, type:
+
 ~~~
 less [filename1] [filename2] [filename3]
 ~~~
 Essentially, you can look through the contents of multiple files by passing them in as multiple command line arguments.
+
+<br/> 
+This would be useful when we need info from multiple files at once, and so we don't need to keep running the less command for each individual file.
 
 <br/><br/>
 Using the files provided from our lab in week 4 (docsearch), I used this command:
@@ -104,6 +115,8 @@ And received this output:
 *This is a screenshot of only a portion of the output, since there are so many ./technical files within Docsearch.*
 > The "." in the command tells 'find' to search and print every file in the current directory. When I ran this command using the code from our week 4 lab, I was in the docsearch directory, so the output printed out every file within that directory (so files within the technical folder, which contains the 911 reports, biomed, government, and plos folders).
 
+This command can be useful when we need to know exactly what files are contained within a certain directory.
+
 <br/><br/>
 <br/><br/>
 
@@ -113,10 +126,13 @@ And received this output:
 In the command line, type:
 
 ~~~
-less . -name [string to look for]
+less . -name [String to look for]
 ~~~
 
-The -name Ecommand tells 'find' to search for files or directories that contain the String following -name and print them. The "." before the -name command tells 'find' to search for files that are named exactly like the String following -name. This command is case-sensitive, meaning that lowercase and uppercase laters from the String have to exactly match the file or directory we are searching for.
+The -name command tells 'find' to search for files or directories that contain the String following -name and print them. The "." before the -name command tells 'find' to search for files that are named exactly like the String following -name. This command is case-sensitive, meaning that lowercase and uppercase laters from the String have to exactly match the file or directory we are searching for. 
+
+<br/>
+This can be useful in a case where there is a very specific file we are looking for. We wouldn't need to look through every single file name within a directory, saving a lot of time.
 
 <br/><br/>
 Using the files provided from our lab in week 4 (docsearch), I used this command:
@@ -148,6 +164,9 @@ And received this output:
 ![](find-amin.png)
 >This command searches for files in the current directory that were modified less than five minutes ago. For the sake of this example, I modified a line in one of the files in the docsearch repository and used -amin -5 immediately after to see what it would output. I believe that the "./.git/objects" lines may be referring to the exact edits I made in the file, while the "./technical" line refers to the exact file that I modified.
 
+<br/>
+A situation in which I think this would be useful is when we might accidentally modify a file we didn't mean to. If we have an extremely expansive directory like technical, the -amin -5 command would allow us to instantly find the file we mistakenly modified.
+
 <br/><br/>
 <br/><br/>
 
@@ -163,6 +182,9 @@ In the command line, type:
 grep [pattern] [filename]
 ~~~
 grep looks for a pattern (e.g. a String expression) in the filename specified in the command line and prints out all the lines in that file that match that pattern.
+
+<br/>
+This is useful when we want to find very specific information within lines, and so we can use the pattern as a keyword to instantly find the information we are looking for.
 
 
 <br/><br/>
@@ -192,6 +214,9 @@ grep --color [pattern] [filename]
 ~~~
 This command works similarly to using grep normally, but this time we included the 'option' of color coding the pattern we are looking for using --color. This means that when our lines within the specified file include the pattern we're searching for, those lines are printed with the pattern we are looking for highlighted in the color red.
 
+<br/>
+If we are using the pattern as a keyword within a file, it can be helpful to color-code that keyword when many lines match the pattern we are looking for to distinguish the exact information that we need.
+
 <br/><br/>
 Using the files provided from our lab in week 4 (docsearch), I used this command:
 
@@ -215,6 +240,9 @@ In the command line, type:
 grep -n [pattern] [filename]
 ~~~
 This command works similarly to using grep normally, but this time we included the 'option' of printing out the line numbers of each line we looked for. When our lines within the specified file include the pattern we are looking for, they printed along side the corresponding line numbers they have in their file.
+
+<br/>
+If we are looking for information using patterns as a keyword within a file, knowing the line numbers of that information can be useful if we need additional context. If we are able to locate those lines within the file (using a command like [less -N [filename]] listed in a previous example), we may be able to get additional context by looking at the lines directly next to the ones we searched for.
 
 <br/><br/>
 Using the files provided from our lab in week 4 (docsearch), I used this command:
