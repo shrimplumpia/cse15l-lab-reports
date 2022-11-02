@@ -6,3 +6,4 @@ You're all I need to be here with
 
 1. [Lab Report 0](https://shrimplumpia.github.io/cse15l-lab-reports/lab-report-1-week-0.html)
 2. [Lab Report 1](https://shrimplumpia.github.io/cse15l-lab-reports/lab-report-1-week-1.html)
+3. [Lab Report 2](https://shrimplumpia.github.io/cse15l-lab-reports/lab-report-1-week-3.html)
