@@ -47,7 +47,7 @@ And received this output:
 ~~~
 They were planning to hijack these planes and turn them into large guided missiles, loaded with up to 11,400 gallons of jet fuel. By 8:00 A.M. on the morning of Tuesday, September 11,2001, they had defeated all the security layers that America's civil aviation security system then had in place to prevent a hijacking. The Hijacking of American 11 American Airlines Flight 11 provided nonstop service from Boston to Los Angeles. On September 11, Captain John Ogonowski and First Officer Thomas McGuinness piloted the Boeing 767. It carried its full capacity of nine flight attendants. Eighty-one passengers boarded the flight with them (including the five terrorists).22 The plane took off at 7:59. Just before 8:14, it had climbed to 26,000 feet, not quite its initial assigned cruising altitude of 29,000 feet. All communications and flight profile data were normal. About this time the "Fasten Seatbelt" sign would usually have been turned off and the flight attendants would have begun preparing for cabin service.
 ~~~
->The lines in this output don't really make sense when put together, but that's because these are all the lines that match the pattern I searched ("small").
+>In this file, the lines are much longer. So although "large" only appears once in this text, it's because this is all counted on one line.
 
 <br/><br/>
 <br/><br/>
@@ -65,7 +65,7 @@ And received this output:
 create the richest literary treasure in the English language. We wonder how Michelangelo—a
 How did their environments promote or impede them? Would Michelangelo have been great
 ~~~
->The lines in this output don't really make sense when put together, but that's because these are all the lines that match the pattern I searched ("small").
+>In this text, there are only two lines containing "Michelangelo" and so they are printed to the terminal.
 
 <br/><br/>
 <br/><br/>
@@ -108,7 +108,7 @@ grep --color  "airport" technical/911report/chapter-1.txt
 
 And received this output:
 ![](grep_color_ex2.png)
->The pattern I was searching for was "small", so this time all lines within the file 1468-6708-3-1.txt within the biomed directory in technical were printed with "small" being highlighted in red.
+>The pattern I was searching for was "airport." In this text, it is especially obvious why grep color is a good command, since the search results returns so many lines. It would be difficult to find any context information related to airports without this command.
 
 <br/><br/>
 <br/><br/>
@@ -122,7 +122,7 @@ grep --color  "Michelangelo" technical/plos/journal.pbio.0020047.txt
 
 And received this output:
 ![](grep_color_ex3.png)
->The pattern I was searching for was "small", so this time all lines within the file 1468-6708-3-1.txt within the biomed directory in technical were printed with "small" being highlighted in red.
+>Similar to example 1, this image just exemplifies how the word I searched for, "Michelangelo", is highlighted in the terminal output given to me.
 
 <br/><br/>
 <br/><br/>
@@ -165,7 +165,7 @@ grep --color -n  "airport" technical/911report/chapter-1.txt
 
 And received this output:
 ![](grep-n-color2.png)
->I actually combined two different 'options' here, --color and -n. In this picture, the line number of each matching line within their file is printed alongside those lines. Since I used --color as well, the pattern I searched for in these lines, "small", is highlighted in red as well.
+>Again, the airport example showcases why this command could be useful. In this text especially, where the lines are really long, it can be helpful to know the line numbers to know exactly where any information about airports can be found in the original text.
 
 <br/><br/>
 <br/><br/>
@@ -179,7 +179,7 @@ grep --color -n  "Michelangelo" technical/plos/journal.pbio.0020047.txt
 
 And received this output:
 ![](grep-n-color3.png)
->I actually combined two different 'options' here, --color and -n. In this picture, the line number of each matching line within their file is printed alongside those lines. Since I used --color as well, the pattern I searched for in these lines, "small", is highlighted in red as well.
+>The combination of --color and -n prints the line number of each matching line within the file, with the pattern I'm searching for--"Michelangelo"--highlighted in red.
 
 <br/><br/>
 <br/><br/>
