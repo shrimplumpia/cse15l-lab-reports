@@ -1,180 +1,10 @@
 # Researching Commands
 
-## ***The less command***
-<br/>
 
-## Example 1: Basic Usage
-<br/>
-In the command line, type:
-
-~~~
-less [options] [filename]
-~~~
-
-<br/><br/>
-Using the files provided from our lab in week 4 (docsearch), I used this command:
-
-~~~
-less technical/biomed/bcr458.txt
-~~~
-
-And received this output:
-~~~
-Introduction
-Marin County, located north of San Francisco,
-California, is distinguished among urban counties in the United States by its relatively small population (250,000 residents), by a median per-capita income of more than 200% that of the nation [ 1 ] , and by elevated rates of breast cancer that were first reported in the early 1990s [ 2 ] . The media has since pronounced Marin County 'the breast cancer capital of the world' [ 3 ] , and heightened community concern has inspired grassroots and scientific efforts to investigate reasons for the high incidence.
-Initial studies have suggested that elevated rates in white women living in Marin County and the San Francisco Bay Area (SFBA) are generally explained by the higher prevalence of established breast cancer risk factors, including higher levels of education and income, later age at first birth, and nulliparity [ 4 5 ] . Our previous assessment of breast cancer incidence trends in Marin County isolated the rate elevation to women aged 45-64 years at diagnosis [ 6 ] . Community and scientific concern over increasing incidence rates has nevertheless remained high, so detailed surveillance o incidence and mortality rates has continued.
-It has been estimated that only 45-55% of breast cancer cases in the United States are explained by established risk factors such as income, reproductive factors, and family history [ 7 ] . Distinctive breast cancer incidence and mortality patterns in well-defined populations may therefore inform etiologic understanding. For this reason, and as part of ongoing regional cancer surveillance efforts, we analyzed the most recent breast cancer incidence and mortality data available for Marin County and compared these rates and trends with those from other areas in California.
-      
-      
-Materials and methods
-        
-Cancer incidence and mortality data 
-We obtained cancer incidence and mortality data for Marin County and other California counties from the California Cancer Registry and the California Office of Vital Statistics, respectively. Analyses were based on new cases of invasive breast cancer ( International Classification of Diseases - Oncology , 2nd edition, site codes 50.0-50.9 excluding histology codes 9590-9989; invasive
-:
-~~~
-
->This is only a portion of the output. Essentially, when the less command is used like this, it prints out the contents of a file one page at a time. In this case, the output was extremely long, and the ":" at the end signifies that the output goes on for longer to fit on one single page. You can continue to scroll down the page by using the scroll bar or down arrows, and go to the next page using the f key or space bar.
-
-<br/>
-This command is particularly helpful when trying to read through large files. When these files are read and printed to the command line, they are printed out in 'pages' that we can navigate between using different keyboard shortcuts, making the process of reading large files much more manageable.
-
-<br/><br/>
-<br/><br/>
-
----
-## Example 2: Line Count
-<br/>
-In the command line, type:
-
-~~~
-less -N [filename]
-~~~
-
-<br/><br/>
-Using the files provided from our lab in week 4 (docsearch), I used this command:
-
-~~~
-less -N technical/biomed/bcr458.txt
-~~~
-
-And received this output:
-![](less-n.png)
-*I put it in as an image instead of a code block since copy-pasting the output messed up the formatting.*
-
->Using -N with the 'less' command prints out a very similar output as just using 'less' by itself, except this time it includes the line number of each line in the file. 
-
-<br/>
-An example in which this would be useful is when we use the command line to read through a file, and need to record which paragraphs are most useful to us. If we needed paragraph 2 from the above output, for example, we could note that we need lines 6-27.
-
-<br/><br/>
-<br/><br/>
-
----
-## Example 3: Multiple Files
-<br/>
-In the command line, type:
-
-~~~
-less [filename1] [filename2] [filename3]
-~~~
-Essentially, you can look through the contents of multiple files by passing them in as multiple command line arguments.
-
-<br/> 
-This would be useful when we need info from multiple files at once, and so we don't need to keep running the less command for each individual file.
-
-<br/><br/>
-Using the files provided from our lab in week 4 (docsearch), I used this command:
-
-~~~
-less technical/biomed/bcr458.txt technical/biomed/bcr607.txt
-~~~
-
-And received this output:
-![](less-multiple-files.png)
-> This image only displays the last page of the first file passed into the less command, just to show that the last line doesn't just say (END). Instead, it shows that we can look at the next file passed into the command line, and we can access this file by pressing "n".
-
-<br/><br/>
-<br/><br/>
-
-## ***The find command***
-<br/>
-
----
-## Example 1: Finding Every File in the Current Directory
-
-<br/><br/>
-Using the files provided from our lab in week 4 (docsearch), I used this command:
-
-~~~
-find .
-~~~
-
-And received this output:
-![](find-dot.png)
-*This is a screenshot of only a portion of the output, since there are so many ./technical files within Docsearch.*
-> The "." in the command tells 'find' to search and print every file in the current directory. When I ran this command using the code from our week 4 lab, I was in the docsearch directory, so the output printed out every file within that directory (so files within the technical folder, which contains the 911 reports, biomed, government, and plos folders).
-
-This command can be useful when we need to know exactly what files are contained within a certain directory.
-
-<br/><br/>
-<br/><br/>
-
----
-## Example 2: Exact file names in the directory
-<br/>
-In the command line, type:
-
-~~~
-less . -name [String to look for]
-~~~
-
-The -name command tells 'find' to search for files or directories that contain the String following -name and print them. The "." before the -name command tells 'find' to search for files that are named exactly like the String following -name. This command is case-sensitive, meaning that lowercase and uppercase laters from the String have to exactly match the file or directory we are searching for. 
-
-<br/>
-This can be useful in a case where there is a very specific file we are looking for. We wouldn't need to look through every single file name within a directory, saving a lot of time.
-
-<br/><br/>
-Using the files provided from our lab in week 4 (docsearch), I used this command:
-
-~~~
-find . -name 'government'
-~~~
-
-And received this output:
-~~~
-./technical/government
-~~~
-
->There is only one match for finding a file or directory named exactly 'government'. In this case, it's the government directory within the technical directory under docsearch.
-
-<br/><br/>
-<br/><br/>
-
----
-## Example 3: Finding recently modified files
-<br/>
-Using the files provided from our lab in week 4 (docsearch), I used this command:
-
-~~~
-find . -amin -5
-~~~
-
-And received this output:
-![](find-amin.png)
->This command searches for files in the current directory that were modified less than five minutes ago. For the sake of this example, I modified a line in one of the files in the docsearch repository and used -amin -5 immediately after to see what it would output. I believe that the "./.git/objects" lines may be referring to the exact edits I made in the file, while the "./technical" line refers to the exact file that I modified.
-
-<br/>
-A situation in which I think this would be useful is when we might accidentally modify a file we didn't mean to. If we have an extremely expansive directory like technical, the -amin -5 command would allow us to instantly find the file we mistakenly modified.
-
-<br/><br/>
-<br/><br/>
-
----
 ## ***The grep command***
 <br/>
 
-## Example 1: Basic usage
+## 1: Basic usage
 <br/>
 In the command line, type:
 
@@ -186,8 +16,9 @@ grep looks for a pattern (e.g. a String expression) in the filename specified in
 <br/>
 This is useful when we want to find very specific information within lines, and so we can use the pattern as a keyword to instantly find the information we are looking for.
 
+<br/><br/><br/>
 
-<br/><br/>
+### ***Example 1***
 Using the files provided from our lab in week 4 (docsearch), I used this command:
 
 ~~~
@@ -204,8 +35,43 @@ in certain small subsets. A review of 13 studies of older throughout adult life.
 <br/><br/>
 <br/><br/>
 
+### ***Example 2***
+Using the files provided from our lab in week 4 (docsearch), I used this command:
+
+~~~
+grep "large" technical/911report/chapter-1.txt
+~~~
+
+And received this output:
+
+~~~
+They were planning to hijack these planes and turn them into large guided missiles, loaded with up to 11,400 gallons of jet fuel. By 8:00 A.M. on the morning of Tuesday, September 11,2001, they had defeated all the security layers that America's civil aviation security system then had in place to prevent a hijacking. The Hijacking of American 11 American Airlines Flight 11 provided nonstop service from Boston to Los Angeles. On September 11, Captain John Ogonowski and First Officer Thomas McGuinness piloted the Boeing 767. It carried its full capacity of nine flight attendants. Eighty-one passengers boarded the flight with them (including the five terrorists).22 The plane took off at 7:59. Just before 8:14, it had climbed to 26,000 feet, not quite its initial assigned cruising altitude of 29,000 feet. All communications and flight profile data were normal. About this time the "Fasten Seatbelt" sign would usually have been turned off and the flight attendants would have begun preparing for cabin service.
+~~~
+>The lines in this output don't really make sense when put together, but that's because these are all the lines that match the pattern I searched ("small").
+
+<br/><br/>
+<br/><br/>
+
+### ***Example 3***
+Using the files provided from our lab in week 4 (docsearch), I used this command:
+
+~~~
+grep "Michelangelo" technical/plos/journal.pbio.0020047.txt
+~~~
+
+And received this output:
+
+~~~
+create the richest literary treasure in the English language. We wonder how Michelangelo—a
+How did their environments promote or impede them? Would Michelangelo have been great
+~~~
+>The lines in this output don't really make sense when put together, but that's because these are all the lines that match the pattern I searched ("small").
+
+<br/><br/>
+<br/><br/>
+
 ---
-## Example 2: Color-coding the pattern we are looking for
+## 2: Color-coding the pattern we are looking for
 <br/>
 In the command line, type:
 
@@ -218,6 +84,8 @@ This command works similarly to using grep normally, but this time we included t
 If we are using the pattern as a keyword within a file, it can be helpful to color-code that keyword when many lines match the pattern we are looking for to distinguish the exact information that we need.
 
 <br/><br/>
+
+### ***Example 1***
 Using the files provided from our lab in week 4 (docsearch), I used this command:
 
 ~~~
@@ -231,8 +99,36 @@ And received this output:
 <br/><br/>
 <br/><br/>
 
+### ***Example 2***
+Using the files provided from our lab in week 4 (docsearch), I used this command:
+
+~~~
+grep --color  "airport" technical/911report/chapter-1.txt
+~~~
+
+And received this output:
+![](grep_color_ex2.png)
+>The pattern I was searching for was "small", so this time all lines within the file 1468-6708-3-1.txt within the biomed directory in technical were printed with "small" being highlighted in red.
+
+<br/><br/>
+<br/><br/>
+
+### ***Example 3***
+Using the files provided from our lab in week 4 (docsearch), I used this command:
+
+~~~
+grep --color  "Michelangelo" technical/plos/journal.pbio.0020047.txt
+~~~
+
+And received this output:
+![](grep_color_ex3.png)
+>The pattern I was searching for was "small", so this time all lines within the file 1468-6708-3-1.txt within the biomed directory in technical were printed with "small" being highlighted in red.
+
+<br/><br/>
+<br/><br/>
+
 ---
-## Example 3: Line numbers of successful matches
+## 3: Line numbers of successful matches
 <br/>
 In the command line, type:
 
@@ -244,7 +140,9 @@ This command works similarly to using grep normally, but this time we included t
 <br/>
 If we are looking for information using patterns as a keyword within a file, knowing the line numbers of that information can be useful if we need additional context. If we are able to locate those lines within the file (using a command like [less -N [filename]] listed in a previous example), we may be able to get additional context by looking at the lines directly next to the ones we searched for.
 
-<br/><br/>
+<br/><br/><br/>
+
+### ***Example 1***
 Using the files provided from our lab in week 4 (docsearch), I used this command:
 
 ~~~
@@ -254,3 +152,34 @@ grep --color -n  "small" technical/biomed/1468-6708-3-1.txt
 And received this output:
 ![](grep-n-color.png)
 >I actually combined two different 'options' here, --color and -n. In this picture, the line number of each matching line within their file is printed alongside those lines. Since I used --color as well, the pattern I searched for in these lines, "small", is highlighted in red as well.
+
+<br/><br/>
+<br/><br/>
+
+### ***Example 2***
+Using the files provided from our lab in week 4 (docsearch), I used this command:
+
+~~~
+grep --color -n  "airport" technical/911report/chapter-1.txt
+~~~
+
+And received this output:
+![](grep-n-color2.png)
+>I actually combined two different 'options' here, --color and -n. In this picture, the line number of each matching line within their file is printed alongside those lines. Since I used --color as well, the pattern I searched for in these lines, "small", is highlighted in red as well.
+
+<br/><br/>
+<br/><br/>
+
+### ***Example 3***
+Using the files provided from our lab in week 4 (docsearch), I used this command:
+
+~~~
+grep --color -n  "Michelangelo" technical/plos/journal.pbio.0020047.txt
+~~~
+
+And received this output:
+![](grep-n-color3.png)
+>I actually combined two different 'options' here, --color and -n. In this picture, the line number of each matching line within their file is printed alongside those lines. Since I used --color as well, the pattern I searched for in these lines, "small", is highlighted in red as well.
+
+<br/><br/>
+<br/><br/>
